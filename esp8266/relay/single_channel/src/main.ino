@@ -10,9 +10,10 @@ const char* mqttServer = "";
 const int   mqttPort   = 1883;
 
 const char *mqttId = "someFriendlyId";
-//const char *mqttUser = "";
-//const char *mqttPass = "";
-const char *mqttTopic = "relays/topicName";
+const char *mqttUser = "";
+const char *mqttPass = "";
+//const char *mqttTopic = "relays/topicName";
+const char *mqttTopic = "topicName";
 
 const int relayChannel = 5;
 
@@ -36,8 +37,8 @@ void reconnect() {
     // Loop until we're reconnected
     while (!client.connected()) {
         // Attempt to connect
-        //if (client.connect(mqttId, mqttUser, mqttPass)) {
-        if (client.connect(mqttId)) {
+        if (client.connect(mqttId, mqttUser, mqttPass)) {
+        //if (client.connect(mqttId)) {
             // Once connected, publish an announcement...
             client.publish(mqttTopic, "Connected successfully");
             // ... and resubscribe
