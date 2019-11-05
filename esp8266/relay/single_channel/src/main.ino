@@ -1,21 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-// network
-const char* ssid = "";
-const char* password = "";
-
-// mqtt
-const char* mqttServer = "";
-const int   mqttPort   = 1883;
-
-const char *mqttId = "someFriendlyId";
-const char *mqttUser = "";
-const char *mqttPass = "";
-//const char *mqttTopic = "relays/topicName";
-const char *mqttTopic = "topicName";
-
-const int relayChannel = 5;
+#include "config.h"
 
 WiFiClient esp8266Client;
 PubSubClient client(esp8266Client);
