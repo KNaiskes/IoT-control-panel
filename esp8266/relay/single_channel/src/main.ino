@@ -38,26 +38,27 @@ void reconnect() {
     while (!client.connected()) {
         // Attempt to connect
         if (client.connect(mqttId, mqttUser, mqttPass)) {
-        //if (client.connect(mqttId)) {
+            //if (client.connect(mqttId)) {
             // Once connected, publish an announcement...
             client.publish(mqttTopic, "Connected successfully");
             // ... and resubscribe
             client.subscribe(mqttTopic);
         }
+        }
     }
-}
 
-void setup() {
-    pinMode(relayChannel, OUTPUT);
-    digitalWrite(relayChannel, HIGH);
-    WiFi.begin(ssid, password);
-    client.setServer(mqttServer, mqttPort);
-    client.setCallback(callback);
-}
-
-void loop() {
-    if(!client.connected()) {
-        reconnect();
+    void setup() {
+        pinMode(relayChannel, OUTPUT);
+        digitalWrite(relayChannel, HIGH);
+        WiFi.begin(ssid, password);
+        WiFi.softAPdisconnect(true);
+        client.setServer(mqttServer, mqttPort);
+        client.setCallback(callback);
     }
-    client.loop();
-}
+
+    void loop() {
+        if(!client.connected()) {
+            reconnect();
+        }
+        client.loop();
+    }
