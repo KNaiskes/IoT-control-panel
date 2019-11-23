@@ -9,11 +9,10 @@ const char* password = "";
 const char* mqttServer = "";
 const int   mqttPort   = 1883;
 
-const char *mqttId = "someFriendlyId";
+const char *mqttId = "";
 const char *mqttUser = "";
 const char *mqttPass = "";
-//const char *mqttTopic = "relays/topicName";
-const char *mqttTopic = "topicName";
+const char *mqttTopic = "";
 
 const int relayChannel = 5;
 
@@ -51,7 +50,6 @@ void reconnect() {
         pinMode(relayChannel, OUTPUT);
         digitalWrite(relayChannel, HIGH);
         WiFi.begin(ssid, password);
-        WiFi.softAPdisconnect(true);
         client.setServer(mqttServer, mqttPort);
         client.setCallback(callback);
     }
