@@ -6,7 +6,7 @@ colorama==0.4.1
 idna==2.8
 platformio==4.0.3
 pyserial==3.4
-requests==2.22.0
+requests==2.31.0
 semantic-version==2.8.1
 tabulate==0.8.3
 urllib3==1.26.5
