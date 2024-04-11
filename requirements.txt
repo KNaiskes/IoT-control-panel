@@ -3,7 +3,7 @@ certifi==2023.7.22
 chardet==3.0.4
 Click==7.0
 colorama==0.4.1
-idna==2.8
+idna==3.7
 platformio==4.0.3
 pyserial==3.4
 requests==2.31.0
